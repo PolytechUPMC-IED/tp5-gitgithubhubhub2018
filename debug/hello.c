@@ -4,6 +4,6 @@
 int main()
 {
   printf("Hello You !\n");
-  return EXIT_SUCCESS;
 
+  return EXIT_SUCCESS;
 }

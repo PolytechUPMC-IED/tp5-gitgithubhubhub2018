@@ -1,0 +1,52 @@
+Exercice 5 : 
+
+1. gcc hello.c -g -o hello
+
+2. valgrind ./hello 
+--> Il m'affiche qu'il n'y a zéro erreur mémoire.
+
+3. On a zéro allocations, zéro frees, zéro bits alloués.
+
+4. gcc mem.c -g -o mem
+5. 
+
+==5117== Process terminating with default action of signal 11 (SIGSEGV)
+==5117==  Access not within mapped region at address 0x0
+==5117==    at 0x4004FD: main (mem.c:6)
+
+--> l'erreur est à la ligne 6.
+
+
+==5117== HEAP SUMMARY:
+==5117==     in use at exit: 0 bytes in 0 blocks
+==5117==   total heap usage: 0 allocs, 0 frees, 0 bytes allocated
+==5117== 
+==5117== All heap blocks were freed -- no leaks are possible
+
+--> Il s'agit d'un résumé de l'usage du tas. Lorsque vous utilisez l'allocation dynamique (par des malloc), vous allouez sur le tas.
+
+==5117== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+--> Cette ligne est un résumé du nombre d'erreurs qui ont été détectées.
+ 
+
+--> Le numéro à gauche indique le numéro du processus.
+
+6. 
+gcc -g -Wall mem2.c -o mem2
+valgrind ./mem2
+
+--> Il y a une erreur à la ligne 12
+
+7. On essaie de stocker un entier dans un tableau mais sans avoir pensé à allouer de la mémoire.
+Il faut donc initialiser un tableau après avoir demander à l'utilisateur d'initialiser size" :
+int *p=(int *)calloc(size,sizeof(int)) 
+
+8. Il y a une erreur à ligne 19
+--> Correction : on déplace "free(p);" à la fin du code.
+
+9. valgrind --leak-check=full ./mem3
+--> Il y a une erreur à la ligne 11 : on a alloué de la mémoire pour le tableau p alors qu'on n'en a pas libéré.
+
+10. On supprime "sum". On ajoute à la fin du code "free(p);".
+
+

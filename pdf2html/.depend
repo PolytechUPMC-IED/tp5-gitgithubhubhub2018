@@ -1,0 +1,2 @@
+printer.o: printer.c
+pbm2eps9.o: pbm2eps9.c printer.h

@@ -22,6 +22,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <zlib.h>
 #include <unistd.h>
 #include <png.h>
 #include <sys/types.h>

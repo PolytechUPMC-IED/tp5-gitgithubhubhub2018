@@ -1,0 +1,90 @@
+Exercice 1 :
+
+2. mkdir depot
+Un répertoire caché a été créé : .git
+
+3. touch fichier
+
+4. On n'est pas dans le bon "work tree". Il faut donc sortir du répertoire .git.
+
+5. Initialement, le fichier n'est pas géré par git (il est non versionné). Après le add, il est ajouté mais non commité, non propagé.
+
+7. Notre répertoire est dorénavant propagé, géré par git.
+----------------------------------------------
+Sur la branche master
+rien à valider, la copie de travail est propre
+----------------------------------------------
+
+8. ----------------------------------------------
+commit d06ce29b73d80d088d9b047840a610ab84b95373
+Author: SophiaInès <hakam.sophia@gmail.com>
+Date:   Thu Oct 27 09:35:13 2016 +0200
+
+    c'est nous
+
+diff --git a/fichier b/fichier
+new file mode 100644
+index 0000000..e69de29
+------------------------------------------------
+
+--> Cette commande nous permet de visualiser les derniers commit.
+Ceci nous affiche l'auteur du gestinnaire de version, la date du dernier changement, le message décrivant le changement apporté.
+
+9. ----------------------------------------------
+diff --git a/fichier b/fichier
+index e69de29..cbd38df 100644
+--- a/fichier
++++ b/fichier
+@@ -0,0 +1 @@
++azertyuiop
+-------------------------------------------------
+
+--> git diff montre les différences entre les commits.
+
+
+Exercice 2 :
+
+3. M	fichier
+Basculement sur la branche 'test'
+
+4.  
+* c71d5fa (HEAD, test) Et c'est encore nous
+* d06ce29 (master) c'est nous
+
+5.  
+git checkout master
+M	fichier
+Basculement sur la branche 'master'
+
+git merge test
+Mise à jour d06ce29..c71d5fa
+Fast-forward
+ fichier2 | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 fichier2
+
+git log --graph --decorate --oneline --all
+* c71d5fa (HEAD, test, master) Et c'est encore nous
+* d06ce29 c'est nous
+
+6. Suite au merge, on a déplacé la branche master vers la branche test. Les modifications apportées sur la branche master se retrouvent sur la branche test également, les branches sont liées.
+
+7. <<<<<<< HEAD
+c'est moi ?
+=======
+c'est moi !
+>>>>>>> test
+c'est toi
+
+après : 
+c'est moi !
+c'est toi
+
+
+Exercice 3 : 
+
+3.  git clone https://github.com/PolytechUPMC-IED/tp5-gitgithubhubhub2018.git
+
+Exercice 4 : 
+
+
